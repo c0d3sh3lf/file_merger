@@ -42,17 +42,17 @@ def main():
         parser.print_help()
         exit(1)
     else:
+        if not option.output_filename:
+            print "[-] Error: Output Filename required."
+        parser.print_help()
+        exit(1)
+    else:
+        output_filename = option.output_filename
         folder = option.folder
         if not(os.path.isdir(folder)):
             print "[-] Error: Value is not a valid folder"
             parser.print_help()
             exit(1)
-    if not option.output_filename:
-        print "[-] Error: Output Filename required."
-        parser.print_help()
-        exit(1)
-    else:
-        output_filename = option.output_filename
     if not option.filetype:
         if os.path.isdir(folder):
             for f in os.listdir(folder):
