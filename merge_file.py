@@ -37,7 +37,7 @@ def main():
 
     #Get the user inputs
     (option, args) = parser.parse_args()
-    if (option.folder == ""):
+    if not option.folder:
         print "[-] Error: Folder required."
         parser.print_help()
         exit(1)
@@ -47,13 +47,13 @@ def main():
             print "[-] Error: Value is not a valid folder"
             parser.print_help()
             exit(1)
-    if (option.output_filename == ""):
+    if not option.output_filename:
         print "[-] Error: Output Filename required."
         parser.print_help()
         exit(1)
     else:
         output_filename = option.output_filename
-    if (option.filetype == ""):
+    if not option.filetype:
         if os.path.isdir(folder):
             for f in os.listdir(folder):
                 if os.path.isfile(f):
